@@ -5,6 +5,9 @@ const snare = new Audio('sounds/snare-drum.mp3');
 const kick = new Audio('sounds/kick-drum.mp3');
 const hihat = new Audio('sounds/hi-hat.mp3');
 
+// queryselect html displayCount to display metronome count
+const displayCount = document.querySelector('.displayCount');
+
 // keep track of the current metronome count
 let metronomeCount = 0;
 
@@ -14,11 +17,25 @@ let metronomeCount = 0;
 function update() {
 
     // incremement metronomeCount by 1
-    metronomeCount++;
+    metronomeCount = metronomeCount + 1;
 
     // Play the 'tick' sound
-    tick.play();
+    if (metronomeCount == 1) {
+        tock.play();
+    }
+    else {
+        tick.play();
+    }
+
+    // change the innerText of displayCount variable
+    displayCount.innerText = metronomeCount;
+
+    // reset metronomeCount on 4th beat    
+    if (metronomeCount == 4) {
+        metronomeCount = 0
+    }
 }
+
 
 // This function sets up update() to be called every 600ms
 function setupUpdate() {
