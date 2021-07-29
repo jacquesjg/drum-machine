@@ -28,6 +28,20 @@ const hihatClear = document.querySelector('#hihatClear');
 let metronomeCount = 0;
 
 
+// clear counters
+kickClear.addEventListener('click', () => {
+    kickBeat.value = '';
+})
+
+snareClear.addEventListener('click', () => {
+    snareBeat.value = '';
+})
+
+hihatClear.addEventListener('click', () => {
+    hihatBeat.value = '';
+})
+
+
 
 // This function is called every 600ms
 function update() {
@@ -85,10 +99,6 @@ function update() {
         }
     }
 
-    // clear kick setting
-    kickClear.addEventListener('click', () => {
-        kickBeat.value = '';
-    })
 
 
 
@@ -97,7 +107,7 @@ function update() {
         snare.play()
     }
 
-    // if the value of kickBeat is 1, play 
+    // if the value of snareBeat is 1, play 
     if (snareCheckBox.checked === true && snareBeat.value == '1') {
         if (metronomeCount == 0) {
 
@@ -140,7 +150,7 @@ function update() {
         hihat.play()
     }
 
-    // if the value of kickBeat is 1, play 
+    // if the value of hihatBeat is 1, play 
     if (hihatCheckBox.checked === true && hihatBeat.value == '1') {
         if (metronomeCount == 0) {
 
